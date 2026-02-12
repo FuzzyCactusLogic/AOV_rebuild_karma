@@ -541,7 +541,6 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
     #end_result['label'].setValue('end_result')  ## for debugging layout
     set_centred_xypos(end_result, bpipe_xpos, bpipe_ypos)
     bpipe_nodes.append(end_result)
-    nuke.delete(albedo_spacer_dot)
 
     return bpipe_nodes
 
