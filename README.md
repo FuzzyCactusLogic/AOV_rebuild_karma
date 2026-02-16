@@ -36,7 +36,7 @@ to breakout all your AOVs, then delete out materials that you intend to rebuild 
 
 has been included as a dictionary / sandbox for users to test renders and rebuild AOVs. It includes EXRs rendered using Peter Arcara's Refining_Karma_Renders.hip from the tutorial series of the same name. These files are too large to upload to GitHub, so I've left a link below for those that want to use them..
 
-https://drive.google.com/drive/folders/17qIadU5TkyDVur3TtMvS-RFBrwJs_1Z0?usp=sharing
+https://drive.google.com/file/d/1fC_MgFowEWC1fEKMITLFggpaNTXeBvSy/view?usp=sharing
 
 So far AOV_rebuild_karma_examples_v001.nk includes a key of all default and extra render vars available in Karma H21, and some (but not all) of the custom render vars shown in Refining_Karma_Renders (I'll update this through new Houdini releases). An albedo rebuild demonstrating the AOV_rebuild_karma & AOV_rebuild_karma_albedo_raw.nk stitch, and one rebuild test I made (not quite working!) although I'll build this out as I test through future projects. AOV_rebuild_karma_examples_v001.nk uses Stamps for instancing and layout purposes so if you're not familiar with Stamps the link is at the bottom of the list of references so you can install it for Nuke.
 
