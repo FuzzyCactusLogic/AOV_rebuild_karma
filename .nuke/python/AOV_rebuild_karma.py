@@ -2,16 +2,11 @@ import nuke
 import re
 
 ## global Variables
-LIGHTGROUP_REGEX = re.compile(r'^(?:[a-z0-9]+_)?(li?g?h?t?)(?:_[a-z0-9]+)*$', re.IGNORECASE)
+LIGHTGROUP_REGEX = re.compile(r'^(?:[a-z0-9]+_)?(li?g?h?t?s?)(?:_[a-z0-9]+)*$', re.IGNORECASE)
 
 ADDITIONAL_LIGHTING_AOVS = []
 
-'''emission AOVs currently added to lightgroups (not materials) according to the default karma naming convention 'C_emission'. 
-Although "emissive objects are not light sources" https://www.sidefx.com/docs/houdini/solaris/support/lpe.html. They all work with the basic rebuild 'plus' only method, 
-as long as they are only applied as only 'C_emission', or as 'combinedemission' (same as C_emission), or as 'directemission' plus 'indirectemission'.
-'''
-
-X_SPACE = 250
+X_SPACE = 300
 
 Y_SPACE = 100
 
@@ -19,7 +14,15 @@ MERGE_FROM_COLOUR = 2569876223
 
 MERGE_PLUS_COLOUR = 2197786623
 
-MATERIAL_AOVS = ['albedo', 'ao', 'combineddiffuse', 'directdiffuse', 'indirectdiffuse', 'combinedglossyreflection', 'directglossyreflection', 'indirectglossyreflection', 'glossytransmission', 'coat', 'refract', 'sss', 'combinedemission', 'directemission', 'indirectemission', 'combinedvolume', 'directvolume', 'indirectvolume', 'caustics',]
+MATERIAL_AOVS = [
+    'albedo', 'albedodiffuse', 'combineddiffuse', 'directdiffuse', 'indirectdiffuse', 'sss',
+    'combinedglossyreflection', 'directglossyreflection', 'indirectglossyreflection', 'coat',
+    'glossytransmission', 'caustics', 'refract',
+    'combinedemission', 'directemission', 'indirectemission',
+    'combinedvolume', 'directvolume', 'indirectvolume',
+    #'shadow', 'combineddiffuseshadow', 'directdiffuseshadow', 'indirectdiffuseshadow',
+    #'beautyunshadowed', 'combineddiffuseunshadowed', 'directdiffuseunshadowed', 'indirectdiffuseunshadowed',
+    'ao',]
 
 UTILITY_AOVS = ['alpha', 'depth_extra', 'P', 'P_camera', 'pRef', 'N', 'Ng', 'motionvectors', 'velocity', 'uv_extra', 'Facingratio_N', 'Facingratio_Ng', 'indirectraycount', 'primarysamples', 'cputime', 'oraclevariance',]
 
@@ -49,6 +52,7 @@ def flatten_out_nested(nested_data):
             inner_items = flatten_out_nested(i)
             for y in inner_items:
                 list_of_items.append(y)
+    print (list_of_items)
     return (list_of_items)
 
 ## nodegraph helper functions
@@ -71,16 +75,16 @@ def get_all_layers(node):
     channels = node.channels()
     layers = list(set([c.split('.')[0] for c in channels ]))
     layers.sort()
-    print (layers) ## for debugging
+    #print (layers) ## for debugging
     return layers
 
-def shuffle_out_all_layers(node):
-    for layer in get_layers(node):
-        shuffle = nuke.nodes.Shuffle1(inputs = [node])
-        shuffle['in'].setValue(layer)
-        shuffle['label'].setValue('[value in]')
-        shuffle["note_font_color"].setValue(int(0xFFFFFFFF))
-        shuffle["note_font"].setValue("bold")
+# def shuffle_out_all_layers(node):
+#     for layer in get_layers(node):
+#         shuffle = nuke.nodes.Shuffle1(inputs = [node])
+#         shuffle['in'].setValue(layer)
+#         shuffle['label'].setValue('[value in]')
+#         shuffle["note_font_color"].setValue(int(0xFFFFFFFF))
+#         shuffle["note_font"].setValue("bold")
 
 def get_lightgroup_layers(node, lightgroup_regex = LIGHTGROUP_REGEX, additional_lighting = ADDITIONAL_LIGHTING_AOVS):
     '''Return a list of all aovs in node which are lightgroups_or_materials.'''
@@ -115,11 +119,9 @@ def get_utilities(node, expected_utilities = UTILITY_AOVS):
 ## user config functions
 def setup_breakout_panel(node=None):
     '''Allows the user to customize the breakout config in the gui, and returns a dictionary, settings{} with the user defined settings'''
-    p = nuke.Panel('Breakout lightgroups_or_materials and Materials')
+    p = nuke.Panel('Breakout Lightgroups_or_Materials and Materials')
     p.addSingleLineInput('Lightgroup Regex', LIGHTGROUP_REGEX.pattern)
     p.addBooleanCheckBox('Ignore case for regex?', True)
-    # p.addBooleanCheckBox('breakout_materials', True)
-    # p.addBooleanCheckBox('breakout_lightgroups', True)
     p.addEnumerationPulldown('Breakout:', 'Materials_&_Lightgroups Materials Lightgroups Utilities')
     p.addSingleLineInput('Additional Lighting AOVS', ', '.join(ADDITIONAL_LIGHTING_AOVS))
     p.addSingleLineInput('Material AOVs', ', '.join(MATERIAL_AOVS))
@@ -176,13 +178,14 @@ def custom_shuffle_out_lightgroups(node):
 
 def custom_breakout_lightgroups_and_materials(node):
     '''Obtain custom user settings from a panel and the run the breakout script'''
-    ## Hard stop if Unpremult
-    if node.Class() == 'Unpremult':
+    ## hard stop if Unpremult or Premult
+    if node.Class() in ('Unpremult', 'Premult'):
         nuke.message(
-            "Selected node is an Unpremult.\n\n"
+            "Selected node is a %s.\n\n"
             "Because AOV_rebuild_karma begins by unpremultiplying the RGBA channel, "
-            "by appending to an Unpremult node you will double unpremult and break the rebuild.\n\n"
-            "Please make sure Unpremult nodes are not being used upstream."
+            "by appending to a %s node you may break the rebuild.\n\n"
+            "Please make sure Premult / Unpremult nodes are not being used upstream."
+            % (node.Class(), node.Class())
         )
         return
 
@@ -209,6 +212,9 @@ def custom_breakout_lightgroups_and_materials(node):
             "so not to break your AOV rebuld."
             % warn_class
         )
+
+    # IMPORTANT: run the post pass after building
+    post_layout_adjustments()
 
 def breakout_utilities(node, settings = DEFAULT_SETTINGS):
     '''Cycles through all the aovs classed as utilities and creates an aov shuffle of them'''
@@ -237,6 +243,15 @@ def breakout_utilities(node, settings = DEFAULT_SETTINGS):
 
     src_channels = set(node.channels())
 
+    available_layers = get_all_layers(node)
+    available_layers_lower = {l.lower() for l in available_layers}
+
+    # If user expects "alpha" but there's no alpha layer, synthesize from rgba.alpha
+    if "alpha" in {u.lower() for u in expected_utilities} and "alpha" not in available_layers_lower:
+        if "rgba.alpha" in src_channels:
+            # put alpha at the front so it appears first in the utility row
+            utilities = ["alpha"] + utilities
+
     for i, utl in enumerate(utilities):
         x_pos = x_utl_dot_pos + (x_space * (i + 1))
         utility_pipe = [bpipe_nodes[-1]]
@@ -249,49 +264,58 @@ def breakout_utilities(node, settings = DEFAULT_SETTINGS):
 
         shuffle_utl = nuke.nodes.Shuffle2(inputs=[utility_pipe[-1]], in1=utl, in2='alpha', label=utl)
 
-        # gather channels that belong to this layer
-        layer_chans = [c for c in src_channels if c.startswith(utl + ".")]
-
-        has_xyz = all(f"{utl}.{c}" in src_channels for c in ("x", "y", "z"))
-        has_rgb = all(f"{utl}.{c}" in src_channels for c in ("red", "green", "blue"))
-        has_alpha = f"{utl}.alpha" in src_channels
-
-        alpha_src = f"{utl}.alpha" if has_alpha else "rgba.alpha"
-
-        if has_xyz:
-            shuffle_utl['mappings'].setValue([
-                (f"{utl}.x", "rgba.red"),
-                (f"{utl}.y", "rgba.green"),
-                (f"{utl}.z", "rgba.blue"),
-                (alpha_src,  "rgba.alpha"),
+        # --- alpha special-case (do NOT let generic mapping overwrite it)
+        if utl.lower() == "alpha" and "alpha" not in available_layers_lower:
+            shuffle_utl["in1"].setValue("rgba")
+            shuffle_utl["in2"].setValue("alpha")
+            shuffle_utl["label"].setValue("alpha")
+            shuffle_utl["mappings"].setValue([
+                ("rgba.alpha", "rgba.red"),
+                ("rgba.alpha", "rgba.green"),
+                ("rgba.alpha", "rgba.blue"),
+                ("rgba.alpha", "rgba.alpha"),
             ])
-
-        elif has_rgb:
-            shuffle_utl['mappings'].setValue([
-                (f"{utl}.red",   "rgba.red"),
-                (f"{utl}.green", "rgba.green"),
-                (f"{utl}.blue",  "rgba.blue"),
-                (alpha_src,      "rgba.alpha"),
-            ])
-
         else:
-            # Single-channel layer: map that one channel to RGB
-            # Pick the first non-alpha channel if possible
-            non_alpha = [c for c in layer_chans if not c.endswith(".alpha")]
-            single_src = (non_alpha[0] if non_alpha else (layer_chans[0] if layer_chans else None))
+            ## gather channels that belong to this layer
+            layer_chans = [c for c in src_channels if c.startswith(utl + ".")]
 
-            if single_src:
+            has_xyz = all(f"{utl}.{c}" in src_channels for c in ("x", "y", "z"))
+            has_rgb = all(f"{utl}.{c}" in src_channels for c in ("red", "green", "blue"))
+            has_alpha = f"{utl}.alpha" in src_channels
+
+            alpha_src = f"{utl}.alpha" if has_alpha else "rgba.alpha"
+
+            if has_xyz:
                 shuffle_utl['mappings'].setValue([
-                    (single_src, "rgba.red"),
-                    (single_src, "rgba.green"),
-                    (single_src, "rgba.blue"),
-                    (alpha_src,  "rgba.alpha"),
-                ])
-            else:
-                # Fallback: just keep alpha (should be rare)
-                shuffle_utl['mappings'].setValue([
+                    (f"{utl}.x", "rgba.red"),
+                    (f"{utl}.y", "rgba.green"),
+                    (f"{utl}.z", "rgba.blue"),
                     (alpha_src, "rgba.alpha"),
                 ])
+
+            elif has_rgb:
+                shuffle_utl['mappings'].setValue([
+                    (f"{utl}.red", "rgba.red"),
+                    (f"{utl}.green", "rgba.green"),
+                    (f"{utl}.blue", "rgba.blue"),
+                    (alpha_src, "rgba.alpha"),
+                ])
+
+            else:
+                non_alpha = [c for c in layer_chans if not c.endswith(".alpha")]
+                single_src = (non_alpha[0] if non_alpha else (layer_chans[0] if layer_chans else None))
+
+                if single_src:
+                    shuffle_utl['mappings'].setValue([
+                        (single_src, "rgba.red"),
+                        (single_src, "rgba.green"),
+                        (single_src, "rgba.blue"),
+                        (alpha_src, "rgba.alpha"),
+                    ])
+                else:
+                    shuffle_utl['mappings'].setValue([
+                        (alpha_src, "rgba.alpha"),
+                    ])
 
         shuffle_utl["note_font_color"].setValue(int(0xFFFFFFFF))
         shuffle_utl["note_font"].setValue("bold")
@@ -316,16 +340,20 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
     x_pos, y_pos = get_centre_xypos(node)
     y_pos += y_space * 1.5
 
-    no_op = nuke.nodes.NoOp(inputs = [start_input])  ## CHANGED (was [node])
+    no_op = nuke.nodes.NoOp(inputs = [start_input])
+    no_op.setName('spacer_no_op', True)
     set_centred_xypos(no_op, x_pos, y_pos)
     bpipe_nodes.append(no_op)
 
     y_pos+=y_space
     start_dot = nuke.nodes.Dot(inputs = [bpipe_nodes[-1]])
     #start_dot['label'].setValue('start_dot')  ## For debugging layout
+    start_dot.setName('start_dot', True)
     set_centred_xypos(start_dot, x_pos, y_pos)
     bpipe_nodes.append(start_dot)
     top_nodes =[bpipe_nodes[-1]]
+    ## ensure bpipe_xpos/ypos always exist even if no AOVs are found
+    bpipe_xpos, bpipe_ypos = get_centre_xypos(bpipe_nodes[-1])
 
     ## main breakout
     if mode == 0:
@@ -335,7 +363,19 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
         print([mat.lower() for mat in lightgroups_or_materials])
     elif mode == 1:
         lightgroups_or_materials = get_lightgroup_layers(node, lightgroup_regex, additional_lighting)
-    
+
+    ## guard + feedback to artist on missing material AOVs
+    if not lightgroups_or_materials:
+        sticky_label = '<h3>Missing Materials</h3>There are no materials in this stream.'
+        sticky_note = nuke.nodes.StickyNote(
+            label=sticky_label,
+            tile_color=0x272727ff,
+            note_font_color=0xa8a8a8ff,
+            note_font_size=40
+        )
+        sticky_note.setXYpos(int(x_pos + x_space), int(y_pos))
+        return bpipe_nodes
+
     count = 0 ## track Lightgroup numbers
 
     for lg in lightgroups_or_materials:
@@ -346,6 +386,7 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
         aov_pipe = []
         aov_dot = nuke.nodes.Dot(inputs = [top_nodes[-1]])
         #aov_dot['label'].setValue('aov_dot')  ## for debugging layout
+        aov_dot.setName('aov_dot', True)
         set_centred_xypos(aov_dot, x_pos, y_pos)
         top_nodes.append(aov_dot)
         aov_pipe.append(aov_dot)
@@ -364,10 +405,11 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
         aov_pipe.append(unpremult_lg)
 
         y_pos+=y_space
-        bottom_dot = nuke.nodes.Dot(inputs = [aov_pipe[-1]])
-        #bottom_dot['label'].setValue('bottom_dot')  ## for debugging layout
-        set_centred_xypos(bottom_dot, x_pos, y_pos)
-        aov_pipe.append(bottom_dot)
+        bottom_aov_dot = nuke.nodes.Dot(inputs = [aov_pipe[-1]])
+        #bottom_aov_dot['label'].setValue('bottom_aov_dot')  ## for debugging layout
+        bottom_aov_dot.setName('bottom_aov_dot', True)
+        set_centred_xypos(bottom_aov_dot, x_pos, y_pos)
+        aov_pipe.append(bottom_aov_dot)
 
         ## bpipe
         if mode == 0:
@@ -378,7 +420,7 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
 
             if lg_lower.startswith('combined'):
 
-                suffix = lg_lower[len('combined'):]  # e.g. 'diffuse', 'volume', etc
+                suffix = lg_lower[len('combined'):]  ## eg. 'diffuse', 'volume', etc
 
                 direct_name   = 'direct'   + suffix
                 indirect_name = 'indirect' + suffix
@@ -400,12 +442,34 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
 
                     ## place under the combined shuffle
                     sx, sy = get_centre_xypos(shuffle_lg)
-                    sticky_note.setXYpos(int(sx), int(sy + y_space * 1.5))
+                    sticky_note.setXYpos(int(sx), int(sy + y_space * 1))
                     ## skip adding this combined AOV to the B pipe
                     continue
 
-        ## skip albedo in B pipe (materials rebuild only)
-        if mode == 0 and lg.lower() == 'albedo':
+            # skip ao AOV in B pipe (materials rebuild only) - NO continue
+            if lg_lower == "ao":
+                sticky_label = (
+                    "ao AOV not added to B pipe,\n\n"
+                    "Please use as needed"
+                )
+
+                sticky_note = nuke.nodes.StickyNote(
+                    label=sticky_label,
+                    tile_color=0x272727ff,
+                    note_font_color=0xa8a8a8ff,
+                    note_font_size=11
+                )
+
+                sx, sy = get_centre_xypos(shuffle_lg)
+                sticky_note.setXYpos(int(sx), int(sy + y_space * 1))
+
+                # mark this iteration as "skip merge"
+                skip_bpipe = True
+            else:
+                skip_bpipe = False
+
+        ## skip albedo AOVs in B pipe (materials rebuild only)
+        if mode == 0 and 'albedo' in lg.lower():
 
             ## ensure the RGB remove happens once at the start of the bpipe (same as normal flow)
             bpipe_xpos, bpipe_ypos = get_centre_xypos(bpipe_nodes[-1])
@@ -433,6 +497,7 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
 
             albedo_spacer_dot = nuke.nodes.Dot(inputs=[bpipe_nodes[-1]])
             #albedo_spacer_dot['label'].setValue('albedo_skipped')  ## for debugging layout
+            albedo_spacer_dot.setName('albedo_spacer_dot', True)
             set_centred_xypos(albedo_spacer_dot, bpipe_xpos, merge_ypos)
             bpipe_nodes.append(albedo_spacer_dot)
 
@@ -442,7 +507,7 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
 
             ## sticky note under the albedo shuffle
             sticky_label = (
-                "albedo not added to B pipe,\n\n"
+                "albedo AOV not added to B pipe,\n\n"
                 "this AOV will break the basic rebuild.\n\n"
                 "Please only use for cheats\n\n" 
                 "or refer to the advanced rebuild for albedo rebuild."
@@ -455,7 +520,12 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
             )
             ## place underneath the albedo shuffle
             sx, sy = get_centre_xypos(shuffle_lg)
-            sticky_note.setXYpos(int(sx - x_space * 0.5), int(sy + y_space * 1.5))
+            sticky_note.setXYpos(int(sx - x_space * 0.5), int(sy + y_space * 1))
+            ...
+        elif mode == 0 and skip_bpipe:
+            # AO (or any future skip case): do nothing further to bpipe
+            # (no spacer dots, no remove node, no merge)
+            pass
         else:
             bpipe_xpos, bpipe_ypos = get_centre_xypos(bpipe_nodes[-1])
 
@@ -492,12 +562,12 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
     ## unassigned Pipe
     unassigned_pipe = []
     x_pos += x_space
-    aov_dot = nuke.nodes.Dot(inputs = [top_nodes[-1]])
-    #aov_dot['label'].setValue('aov_dot')  ## for debugging layout
+    unassigned_aov_dot = nuke.nodes.Dot(inputs = [top_nodes[-1]])
+    #unassigned_aov_dot['label'].setValue('unassigned_aov_dot')  ## for debugging layout
     unassigned_ypos = get_centre_xypos(top_nodes[-1], )[1]
-    set_centred_xypos(aov_dot, x_pos, unassigned_ypos)
-    top_nodes.append(aov_dot)
-    unassigned_pipe.append(aov_dot)
+    set_centred_xypos(unassigned_aov_dot, x_pos, unassigned_ypos)
+    top_nodes.append(unassigned_aov_dot)
+    unassigned_pipe.append(unassigned_aov_dot)
 
     ## feedback to artist on missing material aovs
     if mode == 0 and missing_materials != []:
@@ -527,16 +597,18 @@ def plus_lightgroups_or_materials(node, mode = 0, settings = DEFAULT_SETTINGS, s
 
         y_pos += y_space * 0.5
 
-    bottom_dot = nuke.nodes.Dot(inputs = [unassigned_pipe[-1]])
-    #bottom_dot['label'].setValue('bottom_dot')  ## for debugging layout
-    set_centred_xypos(bottom_dot, x_pos, y_pos)
-    unassigned_pipe.append(bottom_dot)
+    unassigned_bottom_dot = nuke.nodes.Dot(inputs = [unassigned_pipe[-1]])
+    #unassigned_bottom_dot['label'].setValue('unassigned_bottom_dot')  ## for debugging layout
+    unassigned_bottom_dot.setName('unassigned_bottom_dot', True)
+    set_centred_xypos(unassigned_bottom_dot, x_pos, y_pos)
+    unassigned_pipe.append(unassigned_bottom_dot)
 
-    merge_plus= nuke.nodes.Merge2(inputs = [ bpipe_nodes[-1], unassigned_pipe[-1]], operation ='plus', output = 'rgb', tile_color = MERGE_PLUS_COLOUR, label = '<i> unassigned lights', disable = True)
+    merge_plus = nuke.nodes.Merge2(inputs = [ bpipe_nodes[-1], unassigned_pipe[-1]], operation ='plus', output = 'rgb', tile_color = MERGE_PLUS_COLOUR, label = '<i> unassigned aov', disable = True)
+    merge_plus.setName('merge_plus', True)
     set_centred_xypos(merge_plus, bpipe_xpos, bpipe_ypos)
     bpipe_nodes.append(merge_plus)
 
-    bpipe_ypos +=y_space
+    bpipe_ypos += y_space
     end_result = nuke.nodes.Dot(inputs =[bpipe_nodes[-1]])
     #end_result['label'].setValue('end_result')  ## for debugging layout
     set_centred_xypos(end_result, bpipe_xpos, bpipe_ypos)
@@ -560,6 +632,14 @@ def breakout_lightgroups_and_materials(node, settings=DEFAULT_SETTINGS):
     additional_lighting = settings['additional_lighting']
     x_space = settings['x_space']
     y_space = settings['y_space']
+
+    ## guard : Utilities only mode
+    if (not settings.get('breakout_materials', False) and
+        not settings.get('breakout_lightgroups', False) and
+        settings.get('breakout_utilities', False)):
+
+        breakout_utilities(node, settings)
+        return
 
     ## if there are no materials/lightgroups, run utilities only (if any)
     materials = get_materials(node, expected_materials)
@@ -665,7 +745,7 @@ def breakout_lightgroups_and_materials(node, settings=DEFAULT_SETTINGS):
         set_centred_xypos(merge_materials, x_pos, y_pos)
         bpipe_nodes.append(merge_materials)
 
-    ## Feedback to artist on missing lightgroup aovs
+    ## guard + feedback to artist on missing lightgroup AOVs
     elif breakout_lightgroups == True:
         sticky_label = '<h3>Missing Lightgroups</h3>There are no lightgroups in this stream (as per the regex code).'
         sticky_note = nuke.nodes.StickyNote(
@@ -674,8 +754,6 @@ def breakout_lightgroups_and_materials(node, settings=DEFAULT_SETTINGS):
             note_font_color=0xa8a8a8ff,
             note_font_size=40
         )
-
-        # place it near the current build position
         sticky_note.setXYpos(int(x_pos + x_space), int(y_pos))
 
     y_pos += y_space
@@ -683,3 +761,82 @@ def breakout_lightgroups_and_materials(node, settings=DEFAULT_SETTINGS):
     final_premult = nuke.nodes.Premult(inputs=[bpipe_nodes[-1]])
     set_centred_xypos(final_premult, x_pos, y_pos)
     bpipe_nodes.append(final_premult)
+
+def post_layout_adjustments(y_offset_shuffle=28, y_offset_unpremult=32, y_pad_bottom_dot=50):
+
+    deleted_NoOps = 0
+
+    ## move Shuffle2 nodes UP to the minimum Y of their upstream aov_dot + offset
+    for sh in nuke.allNodes():
+        if (
+            sh.Class() == 'Shuffle2'
+            or (sh.Class() == 'Remove' and sh['label'].value() == 'RGB')
+        ):
+            inp = sh.input(0)
+            if not inp:
+                continue
+
+            if inp.Class() == 'Dot' and ('aov_dot' in inp.name() or 'start_dot' in inp.name()):
+                sh_x, _ = get_centre_xypos(sh)
+                _, dot_y = get_centre_xypos(inp)
+
+                target_y = int(dot_y + y_offset_shuffle)
+                set_centred_xypos(sh, sh_x, target_y)
+
+    ## move Unpremult nodes up to the minimum Y of their upstream Shuffle2 + offset
+    for up in nuke.allNodes('Unpremult'):
+        inp = up.input(0)
+        if not inp:
+            continue
+
+        ## only unpremults with channels value 'rgb'
+        if up['channels'].value() == 'rgb' and inp.Class() == 'Shuffle2':
+            up_x, _ = get_centre_xypos(up)
+            _, sh_y = get_centre_xypos(inp)
+
+            target_y = int(sh_y + y_offset_unpremult)
+            set_centred_xypos(up, up_x, target_y)
+
+    ## bottom_aov_dot: align to upstream node, then place below using upstream size
+    for d in nuke.allNodes('Dot'):
+        if "bottom_aov_dot" in d.name().lower() and not d.dependent():
+
+            up = d.input(0)
+            if not up:
+                continue
+
+            up_x, up_y = get_centre_xypos(up)
+
+            # half upstream height + half dot height + padding
+            offset = int((up.screenHeight() / 2) + (d.screenHeight() / 2) + y_pad_bottom_dot)
+
+            set_centred_xypos(d, up_x, int(up_y + offset))
+
+    ## delete albedo_spacer_dot
+    for n in nuke.allNodes('Dot'):
+        if 'albedo_spacer_dot' in n.name():
+            nuke.delete(n)
+
+    merge_pluses = [
+        n for n in nuke.allNodes("Merge2")
+        if n.name().startswith("merge_plus")
+    ]
+
+    unassigned_bottom_dot = nuke.toNode("unassigned_bottom_dot")
+
+    if unassigned_bottom_dot:
+        for m in merge_pluses:
+            if unassigned_bottom_dot in m.dependencies():
+                ux, _ = get_centre_xypos(unassigned_bottom_dot)
+                _, my = get_centre_xypos(m)
+                set_centred_xypos(unassigned_bottom_dot, ux, my)
+                break
+
+    ## delete NoOps
+    for n in nuke.allNodes('NoOp'):
+        if 'spacer_no_op' in n.name():
+            nuke.delete(n)
+            deleted_NoOps += 1
+
+    print("post_layout_adjustments() ran:",
+          "deleted_NoOps =", deleted_NoOps)
