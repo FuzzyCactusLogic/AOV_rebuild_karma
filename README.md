@@ -1,6 +1,6 @@
 ### README ###
 
-This project is made to automate AOV rebuild in Nuke specifically for renders from Karma render engine in Houdini. It includes a python script (AOV_rebuild_karma.py) that can be installed to perform a 'plus all' AOV rebuild in Nuke when a EXR containing the naming convention that Karma follows is appended upstream. Also included is a shelf tool (AOV_rebuild_karma_albedo_raw.nk ) template / example albedo rebuild for color grading that is installed to the Channel menu in Nuke if the supplied .nuke package is used.
+A project to automate AOV rebuild in Nuke specifically for renders from Karma render engine in Houdini. It includes a python script (AOV_rebuild_karma.py) that can be installed to perform a 'plus all' AOV rebuild in Nuke when a EXR containing the naming convention that Karma follows is appended upstream. Also included is a shelf tool (AOV_rebuild_karma_albedo_raw.nk ) template / example albedo rebuild for color grading that is installed to the Channel menu in Nuke if the supplied .nuke package is used.
 
 
 
