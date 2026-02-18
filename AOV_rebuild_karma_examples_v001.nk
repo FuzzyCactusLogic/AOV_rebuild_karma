@@ -13,7 +13,7 @@ BackdropNode {
 Read {
  inputs 0
  file_type exr
- file /VFX/git_projects/public/AOV_rebuild_karma/render/h21_karma_all_aovs.0001.exr
+ file /render/h21_karma_all_aovs.0001.exr
  format "1920 1440 0 0 1920 1440 1 "
  origset true
  name Read1
@@ -31,7 +31,7 @@ NoOp {
  xpos -13020
  ypos -146
  addUserKnob {20 anchor_tab l "Anchor Stamp"}
- addUserKnob {26 identifier +HIDDEN T anchor}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T anchor}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor.\nIMPORTANT: This is only for display purposes, and is different from the internal node name."}
  title h21_karma_all_aovs
  addUserKnob {26 prev_title l "" +STARTLINE +HIDDEN T h21_karma_all_aovs}
@@ -62,7 +62,7 @@ NoOp {
  ypos 619
  hide_input true
  addUserKnob {20 wired_tab l "Wired Stamp"}
- addUserKnob {26 identifier +HIDDEN T wired}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T wired}
  addUserKnob {3 lockCallbacks l "" +STARTLINE +HIDDEN}
  addUserKnob {6 toReconnect -STARTLINE +HIDDEN}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor."}
@@ -96,7 +96,6 @@ NoOp {
  addUserKnob {1 anchor l Anchor}
  anchor Anchor_37bdefd408
  addUserKnob {6 auto_reconnect_by_title l "<font color=#ED9977>&nbsp; auto-reconnect by title" t "On copy-paste, auto-reconnect by title instead of stored Anchor name; turns off automatically." +STARTLINE}
- addUserKnob {20 advanced_reconnection l "Advanced Reconnection" n -1}
  addUserKnob {26 line2 l "" +STARTLINE}
  addUserKnob {22 buttonHelp l Help -STARTLINE T stamps.showHelp()}
  addUserKnob {26 version l " " t "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025." -STARTLINE T "<a href=\"http://www.nukepedia.com/gizmos/other/stamps\" style=\"color:#666;text-decoration: none;\"><span style=\"color:#666\"><big>Stamps v1.2</big></span></a>"}
@@ -110,7 +109,7 @@ Dot {
  xpos -12986
  ypos 756
 }
-set N2a81bbb0 [stack 0]
+set N303efde0 [stack 0]
 Dot {
  name Dot62
  label "UTILITIES >"
@@ -120,19 +119,19 @@ Dot {
  xpos -12986
  ypos 1006
 }
-set N2ad26480 [stack 0]
+set N2fe6f400 [stack 0]
 Dot {
  name Dot63
  xpos -12736
  ypos 1006
 }
-set N2a57d690 [stack 0]
+set N3033de30 [stack 0]
 Dot {
  name Dot64
  xpos -12486
  ypos 1006
 }
-set N2b27c220 [stack 0]
+set N2de727f0 [stack 0]
 add_layer {CryptoMaterial CryptoMaterial.red CryptoMaterial.green CryptoMaterial.blue}
 Shuffle2 {
  fromInput1 {
@@ -185,7 +184,7 @@ NoOp {
  xpos -12520
  ypos 1134
  addUserKnob {20 anchor_tab l "Anchor Stamp"}
- addUserKnob {26 identifier +HIDDEN T anchor}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T anchor}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor.\nIMPORTANT: This is only for display purposes, and is different from the internal node name."}
  title Cryptomatte_material_sphere
  addUserKnob {26 prev_title l "" +STARTLINE +HIDDEN T Cryptomatte_material_sphere}
@@ -203,7 +202,7 @@ NoOp {
  addUserKnob {22 buttonHelp l Help -STARTLINE T stamps.showHelp()}
  addUserKnob {26 version l " " t "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025." -STARTLINE T "<a href=\"http://www.nukepedia.com/gizmos/other/stamps\" style=\"color:#666;text-decoration: none;\"><span style=\"color:#666\"><big>Stamps v1.2</big></span></a>"}
 }
-set N31e17990 [stack 0]
+set N31833010 [stack 0]
 NoOp {
  name Stamp6
  help "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025"
@@ -217,7 +216,7 @@ NoOp {
  ypos 3393
  hide_input true
  addUserKnob {20 wired_tab l "Wired Stamp"}
- addUserKnob {26 identifier +HIDDEN T wired}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T wired}
  addUserKnob {3 lockCallbacks l "" +STARTLINE +HIDDEN}
  addUserKnob {6 toReconnect -STARTLINE +HIDDEN}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor."}
@@ -251,7 +250,6 @@ NoOp {
  addUserKnob {1 anchor l Anchor}
  anchor Anchor_21915d9fb4
  addUserKnob {6 auto_reconnect_by_title l "<font color=#ED9977>&nbsp; auto-reconnect by title" t "On copy-paste, auto-reconnect by title instead of stored Anchor name; turns off automatically." +STARTLINE}
- addUserKnob {20 advanced_reconnection l "Advanced Reconnection" n -1}
  addUserKnob {26 line2 l "" +STARTLINE}
  addUserKnob {22 buttonHelp l Help -STARTLINE T stamps.showHelp()}
  addUserKnob {26 version l " " t "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025." -STARTLINE T "<a href=\"http://www.nukepedia.com/gizmos/other/stamps\" style=\"color:#666;text-decoration: none;\"><span style=\"color:#666\"><big>Stamps v1.2</big></span></a>"}
@@ -259,7 +257,7 @@ NoOp {
 Read {
  inputs 0
  file_type exr
- file /VFX/git_projects/public/AOV_rebuild_karma/render/h21_karma_all_materials.0001.exr
+ file /render/h21_karma_all_materials.0001.exr
  format "1920 1440 0 0 1920 1440 1 "
  origset true
  name Read4
@@ -277,7 +275,7 @@ NoOp {
  xpos -12780
  ypos -147
  addUserKnob {20 anchor_tab l "Anchor Stamp"}
- addUserKnob {26 identifier +HIDDEN T anchor}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T anchor}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor.\nIMPORTANT: This is only for display purposes, and is different from the internal node name."}
  title h21_karma_all_materials
  addUserKnob {26 prev_title l "" +STARTLINE +HIDDEN T h21_karma_all_materials}
@@ -308,7 +306,7 @@ NoOp {
  ypos 2332
  hide_input true
  addUserKnob {20 wired_tab l "Wired Stamp"}
- addUserKnob {26 identifier +HIDDEN T wired}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T wired}
  addUserKnob {3 lockCallbacks l "" +STARTLINE +HIDDEN}
  addUserKnob {6 toReconnect -STARTLINE +HIDDEN}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor."}
@@ -342,7 +340,6 @@ NoOp {
  addUserKnob {1 anchor l Anchor}
  anchor Anchor_1cb5467e66
  addUserKnob {6 auto_reconnect_by_title l "<font color=#ED9977>&nbsp; auto-reconnect by title" t "On copy-paste, auto-reconnect by title instead of stored Anchor name; turns off automatically." +STARTLINE}
- addUserKnob {20 advanced_reconnection l "Advanced Reconnection" n -1}
  addUserKnob {26 line2 l "" +STARTLINE}
  addUserKnob {22 buttonHelp l Help -STARTLINE T stamps.showHelp()}
  addUserKnob {26 version l " " t "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025." -STARTLINE T "<a href=\"http://www.nukepedia.com/gizmos/other/stamps\" style=\"color:#666;text-decoration: none;\"><span style=\"color:#666\"><big>Stamps v1.2</big></span></a>"}
@@ -377,7 +374,7 @@ Dot {
  xpos -12956
  ypos 2655
 }
-set N2226b0d0 [stack 0]
+set N3104da50 [stack 0]
 Dot {
  name Dot2
  xpos -12706
@@ -388,19 +385,19 @@ Dot {
  xpos -12706
  ypos 2905
 }
-set N22b4a840 [stack 0]
+set N3108ea50 [stack 0]
 Dot {
  name aov_dot
  xpos -12456
  ypos 2905
 }
-set N2154fb90 [stack 0]
+set N310855a0 [stack 0]
 Dot {
  name aov_dot1
  xpos -12206
  ypos 2905
 }
-set N217a5d80 [stack 0]
+set N3107c2a0 [stack 0]
 Dot {
  name Dot10
  note_font " Bold"
@@ -408,7 +405,7 @@ Dot {
  xpos -11957
  ypos 2905
 }
-set N2236c4a0 [stack 0]
+set N30f5a5a0 [stack 0]
 add_layer {albedotransmitteddiffuse albedotransmitteddiffuse.red albedotransmitteddiffuse.green albedotransmitteddiffuse.blue}
 Shuffle2 {
  fromInput1 {
@@ -441,7 +438,7 @@ Dot {
  xpos -11957
  ypos 3065
 }
-push $N217a5d80
+push $N3107c2a0
 add_layer {albedodiffuse albedodiffuse.red albedodiffuse.green albedodiffuse.blue}
 Shuffle2 {
  fromInput1 {
@@ -467,7 +464,7 @@ Unpremult {
  xpos -12240
  ypos 2961
 }
-push $N2154fb90
+push $N310855a0
 add_layer {albedo albedo.red albedo.green albedo.blue}
 Shuffle2 {
  fromInput1 {
@@ -519,7 +516,7 @@ Dot {
  xpos -11956
  ypos 3105
 }
-set N222ecf80 [stack 0]
+set N31363220 [stack 0]
 Dot {
  name Dot21
  note_font " Bold"
@@ -527,7 +524,7 @@ Dot {
  xpos -11956
  ypos 3148
 }
-set N2230f380 [stack 0]
+set N3004ee60 [stack 0]
 Dot {
  name Dot9
  note_font " Bold"
@@ -535,7 +532,7 @@ Dot {
  xpos -11956
  ypos 3193
 }
-set N22279aa0 [stack 0]
+set N31200900 [stack 0]
 Dot {
  name Dot23
  label "Grade Color\nin this pipe"
@@ -559,26 +556,26 @@ Dot {
  xpos -11956
  ypos 3769
 }
-push $N22279aa0
-push $N2236c4a0
+push $N31200900
+push $N30f5a5a0
 Dot {
  name aov_dot2
  xpos -11706
  ypos 2905
 }
-set N214b03f0 [stack 0]
+set N3121ff70 [stack 0]
 Dot {
  name aov_dot3
  xpos -11456
  ypos 2905
 }
-set N2176ee70 [stack 0]
+set N31239630 [stack 0]
 Dot {
  name aov_dot4
  xpos -11206
  ypos 2905
 }
-set N215205e0 [stack 0]
+set N31245850 [stack 0]
 add_layer {sss sss.red sss.green sss.blue}
 Shuffle2 {
  fromInput1 {
@@ -604,7 +601,7 @@ Unpremult {
  xpos -11240
  ypos 2961
 }
-set N22b59480 [stack 0]
+set N312291e0 [stack 0]
 MergeExpression {
  inputs 2
  expr0 "Ar == 0 ? Br : Br/Ar"
@@ -631,8 +628,8 @@ Dot {
  xpos -11206
  ypos 3562
 }
-push $N2230f380
-push $N2176ee70
+push $N3004ee60
+push $N31239630
 add_layer {indirectdiffuse indirectdiffuse.red indirectdiffuse.green indirectdiffuse.blue}
 Shuffle2 {
  fromInput1 {
@@ -684,8 +681,8 @@ Dot {
  xpos -11456
  ypos 3385
 }
-push $N222ecf80
-push $N214b03f0
+push $N31363220
+push $N3121ff70
 add_layer {directdiffuse directdiffuse.red directdiffuse.green directdiffuse.blue}
 Shuffle2 {
  fromInput1 {
@@ -760,14 +757,14 @@ Merge2 {
  xpos -11740
  ypos 3765
 }
-set N2250dcb0 [stack 0]
-push $N215205e0
+set N31219090 [stack 0]
+push $N31245850
 Dot {
  name aov_dot5
  xpos -10956
  ypos 2905
 }
-set N2261f500 [stack 0]
+set N3120dca0 [stack 0]
 add_layer {combineddiffuse combineddiffuse.red combineddiffuse.green combineddiffuse.blue}
 Shuffle2 {
  fromInput1 {
@@ -793,7 +790,7 @@ Unpremult {
  xpos -10990
  ypos 2961
 }
-push $N22b59480
+push $N312291e0
 Merge2 {
  inputs 2
  operation plus
@@ -812,13 +809,13 @@ Switch {
  xpos -11100
  ypos 3759
 }
-push $N2261f500
+push $N3120dca0
 Dot {
  name aov_dot6
  xpos -10706
  ypos 2905
 }
-set N2225c9f0 [stack 0]
+set N30e332e0 [stack 0]
 add_layer {albedoglossyreflection albedoglossyreflection.red albedoglossyreflection.green albedoglossyreflection.blue}
 Shuffle2 {
  fromInput1 {
@@ -851,7 +848,7 @@ Dot {
  xpos -10706
  ypos 3105
 }
-set N224454f0 [stack 0]
+set N30f8b160 [stack 0]
 Dot {
  name Dot18
  note_font " Bold"
@@ -859,7 +856,7 @@ Dot {
  xpos -10706
  ypos 3148
 }
-set N2243cee0 [stack 0]
+set N30e779a0 [stack 0]
 Dot {
  name Dot27
  label "Grade Color\nin this pipe"
@@ -876,20 +873,20 @@ Dot {
  xpos -10706
  ypos 3562
 }
-push $N2243cee0
-push $N2225c9f0
+push $N30e779a0
+push $N30e332e0
 Dot {
  name aov_dot7
  xpos -10456
  ypos 2905
 }
-set N210839b0 [stack 0]
+set N30e81b90 [stack 0]
 Dot {
  name aov_dot8
  xpos -10206
  ypos 2905
 }
-set N20fc5de0 [stack 0]
+set N30e63630 [stack 0]
 add_layer {indirectglossyreflection indirectglossyreflection.red indirectglossyreflection.green indirectglossyreflection.blue}
 Shuffle2 {
  fromInput1 {
@@ -941,8 +938,8 @@ Dot {
  xpos -10206
  ypos 3385
 }
-push $N224454f0
-push $N210839b0
+push $N30f8b160
+push $N30e81b90
 add_layer {directglossyreflection directglossyreflection.red directglossyreflection.green directglossyreflection.blue}
 Shuffle2 {
  fromInput1 {
@@ -1007,14 +1004,14 @@ Merge2 {
  xpos -10490
  ypos 3558
 }
-set N2235f050 [stack 0]
-push $N20fc5de0
+set N30e39b00 [stack 0]
+push $N30e63630
 Dot {
  name aov_dot9
  xpos -9956
  ypos 2905
 }
-set N2248add0 [stack 0]
+set N30e26640 [stack 0]
 add_layer {combinedglossyreflection combinedglossyreflection.red combinedglossyreflection.green combinedglossyreflection.blue}
 Shuffle2 {
  fromInput1 {
@@ -1049,45 +1046,25 @@ Switch {
  xpos -9990
  ypos 3552
 }
-Read {
- inputs 0
- file_type exr
- file /VFX/git_projects/public/AOV_rebuild_karma/render/h21_karma_all_default_utils.0001.exr
- format "1920 1440 0 0 1920 1440 1 "
- origset true
- name Read2
- xpos -12475
- ypos -238
-}
-Read {
- inputs 0
- file_type exr
- file /VFX/git_projects/public/AOV_rebuild_karma/render/h21_karma_all_extra_utils.0001.exr
- format "1920 1440 0 0 1920 1440 1 "
- origset true
- name Read3
- xpos -12365
- ypos -238
-}
-push $N2248add0
+push $N30e26640
 Dot {
  name aov_dot10
  xpos -9706
  ypos 2905
 }
-set N2250a470 [stack 0]
+set N31083900 [stack 0]
 Dot {
  name aov_dot11
  xpos -9456
  ypos 2905
 }
-set N21081620 [stack 0]
+set N31091990 [stack 0]
 Dot {
  name aov_dot23
  xpos -9191
  ypos 2905
 }
-set N2527ce90 [stack 0]
+set N30f250e0 [stack 0]
 add_layer {combinedemission combinedemission.red combinedemission.green combinedemission.blue}
 Shuffle2 {
  fromInput1 {
@@ -1127,25 +1104,25 @@ StickyNote {
  xpos -9185
  ypos 3111
 }
-push $N2527ce90
+push $N30f250e0
 Dot {
  name aov_dot24
  xpos -8891
  ypos 2905
 }
-set N2887bab0 [stack 0]
+set N30f7acb0 [stack 0]
 Dot {
  name aov_dot25
  xpos -8591
  ypos 2905
 }
-set N252ac7b0 [stack 0]
+set N30fd7980 [stack 0]
 Dot {
  name aov_dot26
  xpos -8291
  ypos 2905
 }
-set N25488a70 [stack 0]
+set N30f05050 [stack 0]
 add_layer {combinedvolume combinedvolume.red combinedvolume.green combinedvolume.blue}
 Shuffle2 {
  fromInput1 {
@@ -1185,25 +1162,25 @@ StickyNote {
  xpos -8285
  ypos 3111
 }
-push $N25488a70
+push $N30f05050
 Dot {
  name aov_dot27
  xpos -7991
  ypos 2905
 }
-set N26b9a850 [stack 0]
+set N30fc7bd0 [stack 0]
 Dot {
  name aov_dot28
  xpos -7691
  ypos 2905
 }
-set N270dc850 [stack 0]
+set N30f0cab0 [stack 0]
 Dot {
  name aov_dot29
  xpos -7391
  ypos 2905
 }
-set N25391040 [stack 0]
+set N30fbd8e0 [stack 0]
 add_layer {ao ao.red ao.green ao.blue}
 Shuffle2 {
  fromInput1 {
@@ -1245,16 +1222,6 @@ StickyNote {
 }
 StickyNote {
  inputs 0
- name StickyNote8
- tile_color 0x272727ff
- label "<h3>Missing Materials</h3><i>caustics</i>\\n<i>refract</i>\\n"
- note_font_size 40
- note_font_color 0xa8a8a8ff
- xpos -6785
- ypos 2911
-}
-StickyNote {
- inputs 0
  name StickyNote9
  tile_color 0x272727ff
  label "<h3>Missing Lightgroups</h3>There are no lightgroups in this stream (as per the regex code)."
@@ -1263,7 +1230,7 @@ StickyNote {
  xpos -12700
  ypos 7203
 }
-push $N25391040
+push $N30fbd8e0
 Dot {
  name Dot15
  xpos -7091
@@ -1293,8 +1260,8 @@ Unpremult {
  xpos -7125
  ypos 3095
 }
-set N28857f60 [stack 0]
-push $N28857f60
+set N3113ccc0 [stack 0]
+push $N3113ccc0
 Merge2 {
  inputs 2
  operation from
@@ -1312,8 +1279,8 @@ Unpremult {
  xpos -7125
  ypos 3295
 }
-set N26a8fd60 [stack 0]
-push $N26a8fd60
+set N3057b730 [stack 0]
+push $N3057b730
 Merge2 {
  inputs 2
  operation from
@@ -1331,8 +1298,8 @@ Unpremult {
  xpos -7125
  ypos 3495
 }
-set N28bb0570 [stack 0]
-push $N28bb0570
+set N303d8310 [stack 0]
+push $N303d8310
 Merge2 {
  inputs 2
  operation from
@@ -1350,8 +1317,8 @@ Unpremult {
  xpos -7125
  ypos 3695
 }
-set N28b63bf0 [stack 0]
-push $N28b63bf0
+set N3058a950 [stack 0]
+push $N3058a950
 Merge2 {
  inputs 2
  operation from
@@ -1369,8 +1336,8 @@ Unpremult {
  xpos -7125
  ypos 3895
 }
-set N28955950 [stack 0]
-push $N28955950
+set N305a9040 [stack 0]
+push $N305a9040
 Merge2 {
  inputs 2
  operation from
@@ -1388,8 +1355,8 @@ Unpremult {
  xpos -7125
  ypos 4095
 }
-set N25057af0 [stack 0]
-push $N25057af0
+set N3292a9d0 [stack 0]
+push $N3292a9d0
 Merge2 {
  inputs 2
  operation from
@@ -1407,8 +1374,8 @@ Unpremult {
  xpos -7125
  ypos 4295
 }
-set N26e22fc0 [stack 0]
-push $N26e22fc0
+set N329491b0 [stack 0]
+push $N329491b0
 Merge2 {
  inputs 2
  operation from
@@ -1426,8 +1393,8 @@ Unpremult {
  xpos -7125
  ypos 4495
 }
-set N26d17f80 [stack 0]
-push $N26d17f80
+set N32967790 [stack 0]
+push $N32967790
 Merge2 {
  inputs 2
  operation from
@@ -1445,8 +1412,8 @@ Unpremult {
  xpos -7125
  ypos 4695
 }
-set N267b3a90 [stack 0]
-push $N267b3a90
+set N329866f0 [stack 0]
+push $N329866f0
 Merge2 {
  inputs 2
  operation from
@@ -1465,8 +1432,8 @@ Unpremult {
  xpos -7125
  ypos 4895
 }
-set N287c6590 [stack 0]
-push $N287c6590
+set N329a4f70 [stack 0]
+push $N329a4f70
 Merge2 {
  inputs 2
  operation from
@@ -1485,8 +1452,8 @@ Unpremult {
  xpos -7125
  ypos 5095
 }
-set N2894a4f0 [stack 0]
-push $N2894a4f0
+set N30622410 [stack 0]
+push $N30622410
 Merge2 {
  inputs 2
  operation from
@@ -1504,8 +1471,8 @@ Unpremult {
  xpos -7125
  ypos 5295
 }
-set N278490c0 [stack 0]
-push $N278490c0
+set N30640900 [stack 0]
+push $N30640900
 Merge2 {
  inputs 2
  operation from
@@ -1524,8 +1491,8 @@ Unpremult {
  xpos -7125
  ypos 5495
 }
-set N288511d0 [stack 0]
-push $N288511d0
+set N3065f230 [stack 0]
+push $N3065f230
 Merge2 {
  inputs 2
  operation from
@@ -1544,8 +1511,8 @@ Unpremult {
  xpos -7125
  ypos 5695
 }
-set N26702390 [stack 0]
-push $N26702390
+set N3067dbf0 [stack 0]
+push $N3067dbf0
 Merge2 {
  inputs 2
  operation from
@@ -1563,8 +1530,8 @@ Unpremult {
  xpos -7125
  ypos 5895
 }
-set N257aafc0 [stack 0]
-push $N257aafc0
+set N3069c220 [stack 0]
+push $N3069c220
 Merge2 {
  inputs 2
  operation from
@@ -1583,8 +1550,8 @@ Unpremult {
  xpos -7125
  ypos 6095
 }
-set N2535ea90 [stack 0]
-push $N2535ea90
+set N306bab40 [stack 0]
+push $N306bab40
 Merge2 {
  inputs 2
  operation from
@@ -1603,8 +1570,8 @@ Unpremult {
  xpos -7125
  ypos 6295
 }
-set N2866e610 [stack 0]
-push $N2866e610
+set N306d9570 [stack 0]
+push $N306d9570
 Merge2 {
  inputs 2
  operation from
@@ -1622,8 +1589,8 @@ Unpremult {
  xpos -7125
  ypos 6495
 }
-set N2679e8d0 [stack 0]
-push $N2679e8d0
+set N306f7b50 [stack 0]
+push $N306f7b50
 Merge2 {
  inputs 2
  operation from
@@ -1635,13 +1602,28 @@ Merge2 {
  xpos -7125
  ypos 6595
 }
+CurveTool {
+ operation "Max Luma Pixel"
+ ROI {0 0 1920 1440}
+ autocropdata {480 360 1440 1080}
+ maxlumapixdata {{curve x1 0} {curve x1 0}}
+ maxlumapixvalue {{curve x1 0} {curve x1 0} {curve x1 0}}
+ minlumapixdata {{curve x1 1427} {curve x1 1095}}
+ minlumapixvalue {{curve x1 -11.0114069} {curve x1 -3.754487753} {curve x1 -0.4181002378}}
+ name CurveTool1
+ label "\nminlumapixvalue: \[value minlumapixvalue]"
+ note_font "Verdana Bold"
+ note_font_size 20
+ note_font_color 0xffffffff
+ xpos -7125
+ ypos 6679
+}
 Dot {
  name unassigned_bottom_dot
- label unassigned_bottom_dot
  xpos -7091
  ypos 6797
 }
-push $N270dc850
+push $N30f0cab0
 Shuffle2 {
  fromInput1 {
   {0}
@@ -1671,7 +1653,7 @@ Dot {
  xpos -7691
  ypos 5492
 }
-push $N26b9a850
+push $N30fc7bd0
 Shuffle2 {
  fromInput1 {
   {0}
@@ -1701,7 +1683,7 @@ Dot {
  xpos -7991
  ypos 5192
 }
-push $N31e17990
+push $N31833010
 NoOp {
  name Stamp7
  help "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025"
@@ -1753,7 +1735,7 @@ NoOp {
  addUserKnob {22 buttonHelp l Help -STARTLINE T stamps.showHelp()}
  addUserKnob {26 version l " " t "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025." -STARTLINE T "<a href=\"http://www.nukepedia.com/gizmos/other/stamps\" style=\"color:#666;text-decoration: none;\"><span style=\"color:#666\"><big>Stamps v1.2</big></span></a>"}
 }
-push $N252ac7b0
+push $N30fd7980
 Shuffle2 {
  fromInput1 {
   {0}
@@ -1790,7 +1772,7 @@ Dot {
  xpos -8591
  ypos 4892
 }
-push $N2887bab0
+push $N30f7acb0
 Shuffle2 {
  fromInput1 {
   {0}
@@ -1820,7 +1802,7 @@ Dot {
  xpos -8891
  ypos 4592
 }
-push $N2250a470
+push $N31083900
 add_layer {albedoglossytransmission albedoglossytransmission.red albedoglossytransmission.green albedoglossytransmission.blue}
 Shuffle2 {
  fromInput1 {
@@ -1853,7 +1835,7 @@ Dot {
  xpos -9706
  ypos 3105
 }
-set N2466c0d0 [stack 0]
+set N307c4780 [stack 0]
 Dot {
  name Dot5
  note_font " Bold"
@@ -1877,8 +1859,8 @@ Dot {
  xpos -9706
  ypos 3562
 }
-push $N2466c0d0
-push $N21081620
+push $N307c4780
+push $N31091990
 Shuffle2 {
  fromInput1 {
   {0}
@@ -1937,7 +1919,7 @@ Dot {
  xpos -9456
  ypos 4279
 }
-push $N2235f050
+push $N30e39b00
 Dot {
  name Dot4
  note_font " Bold"
@@ -1945,7 +1927,7 @@ Dot {
  xpos -10456
  ypos 3985
 }
-push $N2250dcb0
+push $N31219090
 Merge2 {
  inputs 2
  operation plus
@@ -1964,7 +1946,7 @@ Merge2 {
  xpos -11740
  ypos 4269
 }
-push $N22b4a840
+push $N3108ea50
 Remove {
  channels rgb
  name Remove1
@@ -2038,14 +2020,14 @@ Dot {
  xpos -12706
  ypos 6897
 }
-set N28a89260 [stack 0]
-push $N2226b0d0
+set N32a8cf60 [stack 0]
+push $N3104da50
 Dot {
  name Dot30
  xpos -12956
  ypos 6897
 }
-set N2578b740 [stack 0]
+set N32a93670 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2064,7 +2046,7 @@ Shuffle2 {
  xpos -12846
  ypos 6887
 }
-set N25221960 [stack 0]
+set N32a99d80 [stack 0]
 Merge2 {
  inputs 2
  operation divide
@@ -2073,7 +2055,7 @@ Merge2 {
  xpos -12740
  ypos 6993
 }
-push $N2578b740
+push $N32a93670
 Merge2 {
  inputs 2
  operation multiply
@@ -2093,13 +2075,13 @@ Premult {
  xpos -12990
  ypos 7293
 }
-push $N2a81bbb0
+push $N303efde0
 Dot {
  name Dot14
  xpos -12736
  ypos 756
 }
-set N2a79da90 [stack 0]
+set N32ade4f0 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2120,13 +2102,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a79da90
+push $N32ade4f0
 Dot {
  name Dot32
  xpos -12486
  ypos 756
 }
-set N2b1a95f0 [stack 0]
+set N32af1cf0 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2147,13 +2129,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2b1a95f0
+push $N32af1cf0
 Dot {
  name Dot33
  xpos -12236
  ypos 756
 }
-set N2aa686d0 [stack 0]
+set N32b03dd0 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2174,13 +2156,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2aa686d0
+push $N32b03dd0
 Dot {
  name Dot34
  xpos -11986
  ypos 756
 }
-set N2a38e070 [stack 0]
+set N32b161b0 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2201,13 +2183,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a38e070
+push $N32b161b0
 Dot {
  name Dot35
  xpos -11736
  ypos 756
 }
-set N2a4c8df0 [stack 0]
+set N32b28510 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2228,13 +2210,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a4c8df0
+push $N32b28510
 Dot {
  name Dot36
  xpos -11486
  ypos 756
 }
-set N2a655390 [stack 0]
+set N32b3a870 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2255,13 +2237,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a655390
+push $N32b3a870
 Dot {
  name Dot37
  xpos -11236
  ypos 756
 }
-set N2a8d1490 [stack 0]
+set N32b4c960 [stack 0]
 add_layer {basecolor basecolor.red basecolor.green basecolor.blue}
 Shuffle2 {
  fromInput1 {
@@ -2283,19 +2265,19 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a8d1490
+push $N32b4c960
 Dot {
  name Dot38
  xpos -10986
  ypos 756
 }
-set N2a17d920 [stack 0]
+set N32b5ec30 [stack 0]
 Dot {
  name Dot39
  xpos -10736
  ypos 756
 }
-set N2aa91e00 [stack 0]
+set N32b64ec0 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2316,31 +2298,31 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2aa91e00
+push $N32b64ec0
 Dot {
  name Dot40
  xpos -10486
  ypos 756
 }
-set N2a1cd050 [stack 0]
+set N32b77650 [stack 0]
 Dot {
  name Dot41
  xpos -10236
  ypos 756
 }
-set N2a941d40 [stack 0]
+set N32b7d980 [stack 0]
 Dot {
  name Dot42
  xpos -9986
  ypos 756
 }
-set N2a2d5ce0 [stack 0]
+set N32b840f0 [stack 0]
 Dot {
  name Dot43
  xpos -9736
  ypos 756
 }
-set N2a986920 [stack 0]
+set N32b8a860 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2361,13 +2343,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a986920
+push $N32b8a860
 Dot {
  name Dot44
  xpos -9486
  ypos 756
 }
-set N2bd26850 [stack 0]
+set N32b9d050 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2388,13 +2370,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2bd26850
+push $N32b9d050
 Dot {
  name Dot45
  xpos -9236
  ypos 756
 }
-set N2a5ae5e0 [stack 0]
+set N32baf340 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2415,13 +2397,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a5ae5e0
+push $N32baf340
 Dot {
  name Dot46
  xpos -8986
  ypos 756
 }
-set N2a47bb10 [stack 0]
+set N32bc1460 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2442,25 +2424,25 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a47bb10
+push $N32bc1460
 Dot {
  name Dot47
  xpos -8736
  ypos 756
 }
-set N2a15e8e0 [stack 0]
+set N32bd3700 [stack 0]
 Dot {
  name Dot48
  xpos -8486
  ypos 756
 }
-set N2a9e7dd0 [stack 0]
+set N32bd9960 [stack 0]
 Dot {
  name Dot49
  xpos -8236
  ypos 756
 }
-set N2ad03970 [stack 0]
+set N32be00d0 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2481,13 +2463,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2ad03970
+push $N32be00d0
 Dot {
  name Dot50
  xpos -7986
  ypos 756
 }
-set N2abd4cd0 [stack 0]
+set N32bf2880 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2508,13 +2490,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2abd4cd0
+push $N32bf2880
 Dot {
  name Dot51
  xpos -7736
  ypos 756
 }
-set N2ab33c80 [stack 0]
+set N32c04c60 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2535,13 +2517,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2ab33c80
+push $N32c04c60
 Dot {
  name Dot52
  xpos -7486
  ypos 756
 }
-set N2a12ec30 [stack 0]
+set N32c16e00 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2562,13 +2544,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a12ec30
+push $N32c16e00
 Dot {
  name Dot53
  xpos -7236
  ypos 756
 }
-set N2a36a440 [stack 0]
+set N32c29240 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2589,13 +2571,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a36a440
+push $N32c29240
 Dot {
  name Dot54
  xpos -6986
  ypos 756
 }
-set N2c321a60 [stack 0]
+set N32c3bce0 [stack 0]
 add_layer {indirectdiffuseshadow indirectdiffuseshadow.red indirectdiffuseshadow.green indirectdiffuseshadow.blue}
 Shuffle2 {
  fromInput1 {
@@ -2617,13 +2599,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2c321a60
+push $N32c3bce0
 Dot {
  name Dot55
  xpos -6736
  ypos 756
 }
-set N2aa552c0 [stack 0]
+set N32c4e140 [stack 0]
 add_layer {indirectdiffuseunshadowed indirectdiffuseunshadowed.red indirectdiffuseunshadowed.green indirectdiffuseunshadowed.blue}
 Shuffle2 {
  fromInput1 {
@@ -2645,13 +2627,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2aa552c0
+push $N32c4e140
 Dot {
  name Dot56
  xpos -6486
  ypos 756
 }
-set N2a711320 [stack 0]
+set N32c61b70 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2672,13 +2654,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a711320
+push $N32c61b70
 Dot {
  name Dot57
  xpos -6236
  ypos 756
 }
-set N2c3a3ee0 [stack 0]
+set N32c73e40 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2699,13 +2681,13 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2c3a3ee0
+push $N32c73e40
 Dot {
  name Dot58
  xpos -5986
  ypos 756
 }
-set N2aadff30 [stack 0]
+set N32c86040 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2726,19 +2708,19 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2aadff30
+push $N32c86040
 Dot {
  name Dot59
  xpos -5736
  ypos 756
 }
-set N2ac5f520 [stack 0]
+set N32c98160 [stack 0]
 Dot {
  name Dot60
  xpos -5486
  ypos 756
 }
-set N2c8972a0 [stack 0]
+set N32c9e3c0 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2759,7 +2741,7 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a1cd050
+push $N32b77650
 Shuffle2 {
  fromInput1 {
   {0}
@@ -2791,7 +2773,7 @@ NoOp {
  xpos -10520
  ypos 859
  addUserKnob {20 anchor_tab l "Anchor Stamp"}
- addUserKnob {26 identifier +HIDDEN T anchor}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T anchor}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor.\nIMPORTANT: This is only for display purposes, and is different from the internal node name."}
  title combinediffuse
  addUserKnob {26 prev_title l "" +STARTLINE +HIDDEN T combinediffuse}
@@ -2809,16 +2791,7 @@ NoOp {
  addUserKnob {22 buttonHelp l Help -STARTLINE T stamps.showHelp()}
  addUserKnob {26 version l " " t "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025." -STARTLINE T "<a href=\"http://www.nukepedia.com/gizmos/other/stamps\" style=\"color:#666;text-decoration: none;\"><span style=\"color:#666\"><big>Stamps v1.2</big></span></a>"}
 }
-DeepRead {
- inputs 0
- file /VFX/git_projects/public/AOV_rebuild_karma/render/h21_karma_beauty_deep.dcm.0001.exr
- format "1920 1440 0 0 1920 1440 1 "
- origset true
- name DeepRead1
- xpos -12205
- ypos -219
-}
-push $N2a9e7dd0
+push $N32bd9960
 add_layer {directdiffuseunshadowed directdiffuseunshadowed.red directdiffuseunshadowed.green directdiffuseunshadowed.blue}
 Shuffle2 {
  fromInput1 {
@@ -2851,7 +2824,7 @@ NoOp {
  xpos -8520
  ypos 859
  addUserKnob {20 anchor_tab l "Anchor Stamp"}
- addUserKnob {26 identifier +HIDDEN T anchor}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T anchor}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor.\nIMPORTANT: This is only for display purposes, and is different from the internal node name."}
  title directdiffuseunshadowed
  addUserKnob {26 prev_title l "" +STARTLINE +HIDDEN T directdiffuseunshadowed}
@@ -2869,7 +2842,7 @@ NoOp {
  addUserKnob {22 buttonHelp l Help -STARTLINE T stamps.showHelp()}
  addUserKnob {26 version l " " t "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025." -STARTLINE T "<a href=\"http://www.nukepedia.com/gizmos/other/stamps\" style=\"color:#666;text-decoration: none;\"><span style=\"color:#666\"><big>Stamps v1.2</big></span></a>"}
 }
-push $N2a15e8e0
+push $N32bd3700
 add_layer {directdiffuseshadow directdiffuseshadow.red directdiffuseshadow.green directdiffuseshadow.blue}
 Shuffle2 {
  fromInput1 {
@@ -2902,7 +2875,7 @@ NoOp {
  xpos -8770
  ypos 859
  addUserKnob {20 anchor_tab l "Anchor Stamp"}
- addUserKnob {26 identifier +HIDDEN T anchor}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T anchor}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor.\nIMPORTANT: This is only for display purposes, and is different from the internal node name."}
  title directdiffuseshadow
  addUserKnob {26 prev_title l "" +STARTLINE +HIDDEN T directdiffuseshadow}
@@ -2932,8 +2905,8 @@ StickyNote {
  ypos 347
  bookmark true
 }
-push $N25221960
-push $N28a89260
+push $N32a99d80
+push $N32a8cf60
 Switch {
  inputs 2
  name Switch5
@@ -2942,7 +2915,7 @@ Switch {
  xpos -12846
  ypos 7084
 }
-push $N2a2d5ce0
+push $N32b840f0
 add_layer {combineddiffuseunshadowed combineddiffuseunshadowed.red combineddiffuseunshadowed.green combineddiffuseunshadowed.blue}
 Shuffle2 {
  fromInput1 {
@@ -2964,7 +2937,7 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2a941d40
+push $N32b7d980
 add_layer {combineddiffuseshadow combineddiffuseshadow.red combineddiffuseshadow.green combineddiffuseshadow.blue}
 Shuffle2 {
  fromInput1 {
@@ -2986,7 +2959,7 @@ Shuffle2 {
  ypos 775
  postage_stamp true
 }
-push $N2ad26480
+push $N2fe6f400
 Dot {
  name Dot123
  label "OTHER >"
@@ -3001,7 +2974,7 @@ Dot {
  xpos -12736
  ypos 1256
 }
-set N2d25d8c0 [stack 0]
+set N32986100 [stack 0]
 add_layer {sss_bounce sss_bounce.red sss_bounce.green sss_bounce.blue}
 Shuffle2 {
  fromInput1 {
@@ -3023,25 +2996,25 @@ Shuffle2 {
  ypos 1274
  postage_stamp true
 }
-push $N2b27c220
+push $N2de727f0
 Dot {
  name Dot65
  xpos -12236
  ypos 1006
 }
-set N2a874c00 [stack 0]
+set N32d31f40 [stack 0]
 Dot {
  name Dot66
  xpos -11986
  ypos 1006
 }
-set N2c2b2fa0 [stack 0]
+set N32d381b0 [stack 0]
 Dot {
  name Dot67
  xpos -11736
  ypos 1006
 }
-set N2c38d7e0 [stack 0]
+set N32d3e920 [stack 0]
 add_layer {CryptoMaterial02 CryptoMaterial02.red CryptoMaterial02.green CryptoMaterial02.blue CryptoMaterial02.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3063,13 +3036,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c38d7e0
+push $N32d3e920
 Dot {
  name Dot68
  xpos -11486
  ypos 1006
 }
-set N2ab49860 [stack 0]
+set N32d51640 [stack 0]
 add_layer {CryptoObject CryptoObject.red CryptoObject.green CryptoObject.blue}
 Shuffle2 {
  fromInput1 {
@@ -3091,13 +3064,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2ab49860
+push $N32d51640
 Dot {
  name Dot69
  xpos -11236
  ypos 1006
 }
-set N2aad3fb0 [stack 0]
+set N32d63860 [stack 0]
 add_layer {CryptoObject00 CryptoObject00.red CryptoObject00.green CryptoObject00.blue CryptoObject00.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3119,13 +3092,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2aad3fb0
+push $N32d63860
 Dot {
  name Dot70
  xpos -10986
  ypos 1006
 }
-set N2b24d440 [stack 0]
+set N32d761e0 [stack 0]
 add_layer {CryptoObject01 CryptoObject01.red CryptoObject01.green CryptoObject01.blue CryptoObject01.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3147,13 +3120,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2b24d440
+push $N32d761e0
 Dot {
  name Dot71
  xpos -10736
  ypos 1006
 }
-set N2a785a70 [stack 0]
+set N32d89750 [stack 0]
 add_layer {CryptoObject02 CryptoObject02.red CryptoObject02.green CryptoObject02.blue CryptoObject02.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3175,13 +3148,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a785a70
+push $N32d89750
 Dot {
  name Dot72
  xpos -10486
  ypos 1006
 }
-set N2c3c8ad0 [stack 0]
+set N32d9bca0 [stack 0]
 add_layer {Facingratio_N Facingratio_N.Facingratio_N}
 Shuffle2 {
  fromInput1 {
@@ -3203,13 +3176,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c3c8ad0
+push $N32d9bca0
 Dot {
  name Dot73
  xpos -10236
  ypos 1006
 }
-set N2a963ee0 [stack 0]
+set N32dadbc0 [stack 0]
 add_layer {Facingratio_Ng Facingratio_Ng.Facingratio_Ng}
 Shuffle2 {
  fromInput1 {
@@ -3231,13 +3204,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a963ee0
+push $N32dadbc0
 Dot {
  name Dot74
  xpos -9986
  ypos 1006
 }
-set N2c300980 [stack 0]
+set N32dbff40 [stack 0]
 add_layer {N N.x N.y N.z}
 Shuffle2 {
  fromInput1 {
@@ -3259,13 +3232,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c300980
+push $N32dbff40
 Dot {
  name Dot75
  xpos -9736
  ypos 1006
 }
-set N2abe5220 [stack 0]
+set N32dd23b0 [stack 0]
 add_layer {Ng Ng.x Ng.y Ng.z}
 Shuffle2 {
  fromInput1 {
@@ -3287,13 +3260,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2abe5220
+push $N32dd23b0
 Dot {
  name Dot76
  xpos -9486
  ypos 1006
 }
-set N2acdc910 [stack 0]
+set N32de4720 [stack 0]
 add_layer {Ng_camera Ng_camera.x Ng_camera.y Ng_camera.z}
 Shuffle2 {
  fromInput1 {
@@ -3315,13 +3288,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2acdc910
+push $N32de4720
 Dot {
  name Dot77
  xpos -9236
  ypos 1006
 }
-set N2c3a0a50 [stack 0]
+set N32df6cc0 [stack 0]
 add_layer {Ng_facing Ng_facing.x Ng_facing.y Ng_facing.z}
 Shuffle2 {
  fromInput1 {
@@ -3343,13 +3316,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c3a0a50
+push $N32df6cc0
 Dot {
  name Dot78
  xpos -8986
  ypos 1006
 }
-set N2d211510 [stack 0]
+set N32e09030 [stack 0]
 add_layer {Ng_facing00 Ng_facing00.red Ng_facing00.green Ng_facing00.blue Ng_facing00.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3371,13 +3344,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2d211510
+push $N32e09030
 Dot {
  name Dot79
  xpos -8736
  ypos 1006
 }
-set N2a9ebdd0 [stack 0]
+set N32e1b370 [stack 0]
 add_layer {Ng_facing01 Ng_facing01.red Ng_facing01.green Ng_facing01.blue Ng_facing01.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3399,13 +3372,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a9ebdd0
+push $N32e1b370
 Dot {
  name Dot80
  xpos -8486
  ypos 1006
 }
-set N2ac33340 [stack 0]
+set N32e2d860 [stack 0]
 add_layer {Ng_facing02 Ng_facing02.red Ng_facing02.green Ng_facing02.blue Ng_facing02.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3427,13 +3400,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2ac33340
+push $N32e2d860
 Dot {
  name Dot81
  xpos -8236
  ypos 1006
 }
-set N2ab52750 [stack 0]
+set N32e3fd50 [stack 0]
 add_layer {P P.x P.y P.z}
 Shuffle2 {
  fromInput1 {
@@ -3455,13 +3428,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2ab52750
+push $N32e3fd50
 Dot {
  name Dot82
  xpos -7986
  ypos 1006
 }
-set N2a9a8470 [stack 0]
+set N32e52040 [stack 0]
 add_layer {P_camera P_camera.x P_camera.y P_camera.z}
 Shuffle2 {
  fromInput1 {
@@ -3483,13 +3456,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a9a8470
+push $N32e52040
 Dot {
  name Dot83
  xpos -7736
  ypos 1006
 }
-set N2abde170 [stack 0]
+set N32e64540 [stack 0]
 add_layer {P_holdouts P_holdouts.x P_holdouts.y P_holdouts.z}
 Shuffle2 {
  fromInput1 {
@@ -3511,13 +3484,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2abde170
+push $N32e64540
 Dot {
  name Dot84
  xpos -7486
  ypos 1006
 }
-set N2a754800 [stack 0]
+set N32e76740 [stack 0]
 add_layer {P_noholdouts P_noholdouts.x P_noholdouts.y P_noholdouts.z}
 Shuffle2 {
  fromInput1 {
@@ -3539,13 +3512,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a754800
+push $N32e76740
 Dot {
  name Dot85
  xpos -7236
  ypos 1006
 }
-set N2aa0b3f0 [stack 0]
+set N32e88780 [stack 0]
 Shuffle2 {
  fromInput1 {
   {0}
@@ -3565,13 +3538,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2aa0b3f0
+push $N32e88780
 Dot {
  name Dot86
  xpos -6986
  ypos 1006
 }
-set N2c2f1c60 [stack 0]
+set N32e9aa30 [stack 0]
 add_layer {cputime cputime.cputime}
 Shuffle2 {
  fromInput1 {
@@ -3593,13 +3566,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c2f1c60
+push $N32e9aa30
 Dot {
  name Dot87
  xpos -6736
  ypos 1006
 }
-set N2aa23dc0 [stack 0]
+set N32eacc40 [stack 0]
 add_layer {dPdz dPdz.dPdz}
 Shuffle2 {
  fromInput1 {
@@ -3621,13 +3594,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2aa23dc0
+push $N32eacc40
 Dot {
  name Dot88
  xpos -6486
  ypos 1006
 }
-set N2d21f2f0 [stack 0]
+set N32ebedd0 [stack 0]
 add_layer {depth_extra depth_extra.z}
 Shuffle2 {
  fromInput1 {
@@ -3649,13 +3622,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2d21f2f0
+push $N32ebedd0
 Dot {
  name Dot89
  xpos -6236
  ypos 1006
 }
-set N2a8b7a00 [stack 0]
+set N32ed0fe0 [stack 0]
 add_layer {element element.id}
 Shuffle2 {
  fromInput1 {
@@ -3677,13 +3650,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a8b7a00
+push $N32ed0fe0
 Dot {
  name Dot90
  xpos -5986
  ypos 1006
 }
-set N2ab61730 [stack 0]
+set N32ee3530 [stack 0]
 add_layer {far far.far}
 Shuffle2 {
  fromInput1 {
@@ -3705,13 +3678,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2ab61730
+push $N32ee3530
 Dot {
  name Dot91
  xpos -5736
  ypos 1006
 }
-set N2ac84e80 [stack 0]
+set N32ef5610 [stack 0]
 add_layer {far00 far00.red far00.green far00.blue far00.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3733,13 +3706,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2ac84e80
+push $N32ef5610
 Dot {
  name Dot92
  xpos -5486
  ypos 1006
 }
-set N2a714fa0 [stack 0]
+set N32f07d00 [stack 0]
 add_layer {far01 far01.red far01.green far01.blue far01.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3761,13 +3734,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a714fa0
+push $N32f07d00
 Dot {
  name Dot93
  xpos -5236
  ypos 1006
 }
-set N2aa41e30 [stack 0]
+set N32f1a0c0 [stack 0]
 add_layer {far02 far02.red far02.green far02.blue far02.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3789,13 +3762,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2aa41e30
+push $N32f1a0c0
 Dot {
  name Dot94
  xpos -4986
  ypos 1006
 }
-set N2b22d800 [stack 0]
+set N32f2c480 [stack 0]
 add_layer {flags flags.flags}
 Shuffle2 {
  fromInput1 {
@@ -3817,13 +3790,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2b22d800
+push $N32f2c480
 Dot {
  name Dot95
  xpos -4736
  ypos 1006
 }
-set N2b268f80 [stack 0]
+set N32f3e690 [stack 0]
 add_layer {hitdist hitdist.hitdist}
 Shuffle2 {
  fromInput1 {
@@ -3845,13 +3818,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2b268f80
+push $N32f3e690
 Dot {
  name Dot96
  xpos -4486
  ypos 1006
 }
-set N2d20cc80 [stack 0]
+set N32f50620 [stack 0]
 add_layer {hitdist00 hitdist00.red hitdist00.green hitdist00.blue hitdist00.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3873,13 +3846,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2d20cc80
+push $N32f50620
 Dot {
  name Dot97
  xpos -4236
  ypos 1006
 }
-set N2d242870 [stack 0]
+set N32f62aa0 [stack 0]
 add_layer {hitdist01 hitdist01.red hitdist01.green hitdist01.blue hitdist01.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3901,13 +3874,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2d242870
+push $N32f62aa0
 Dot {
  name Dot98
  xpos -3986
  ypos 1006
 }
-set N2b10f310 [stack 0]
+set N32f74e60 [stack 0]
 add_layer {hitdist02 hitdist02.red hitdist02.green hitdist02.blue hitdist02.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3929,13 +3902,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2b10f310
+push $N32f74e60
 Dot {
  name Dot99
  xpos -3736
  ypos 1006
 }
-set N2b258090 [stack 0]
+set N32f87220 [stack 0]
 add_layer {hitstack hitstack.hitstack}
 Shuffle2 {
  fromInput1 {
@@ -3957,13 +3930,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2b258090
+push $N32f87220
 Dot {
  name Dot100
  xpos -3486
  ypos 1006
 }
-set N2b0e69e0 [stack 0]
+set N32f99420 [stack 0]
 add_layer {hitstack00 hitstack00.red hitstack00.green hitstack00.blue hitstack00.alpha}
 Shuffle2 {
  fromInput1 {
@@ -3985,13 +3958,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2b0e69e0
+push $N32f99420
 Dot {
  name Dot101
  xpos -3236
  ypos 1006
 }
-set N2a33a360 [stack 0]
+set N32faba50 [stack 0]
 add_layer {hitstack01 hitstack01.red hitstack01.green hitstack01.blue hitstack01.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4013,13 +3986,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a33a360
+push $N32faba50
 Dot {
  name Dot102
  xpos -2986
  ypos 1006
 }
-set N2a5e19d0 [stack 0]
+set N32fbded0 [stack 0]
 add_layer {hitstack02 hitstack02.red hitstack02.green hitstack02.blue hitstack02.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4041,13 +4014,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a5e19d0
+push $N32fbded0
 Dot {
  name Dot103
  xpos -2736
  ypos 1006
 }
-set N2aa63a00 [stack 0]
+set N32fd0350 [stack 0]
 add_layer {indirectraycount indirectraycount.indirectraycount}
 Shuffle2 {
  fromInput1 {
@@ -4069,13 +4042,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2aa63a00
+push $N32fd0350
 Dot {
  name Dot104
  xpos -2486
  ypos 1006
 }
-set N2ad16ee0 [stack 0]
+set N32fe2540 [stack 0]
 add_layer {mask_extra mask_extra.mask}
 Shuffle2 {
  fromInput1 {
@@ -4097,13 +4070,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2ad16ee0
+push $N32fe2540
 Dot {
  name Dot105
  xpos -2236
  ypos 1006
 }
-set N2c583fd0 [stack 0]
+set N32ff48e0 [stack 0]
 add_layer {motionvectors motionvectors.x motionvectors.y motionvectors.z}
 Shuffle2 {
  fromInput1 {
@@ -4125,13 +4098,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c583fd0
+push $N32ff48e0
 Dot {
  name Dot106
  xpos -1986
  ypos 1006
 }
-set N2a8373c0 [stack 0]
+set N33006c50 [stack 0]
 add_layer {near near.near}
 Shuffle2 {
  fromInput1 {
@@ -4153,13 +4126,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a8373c0
+push $N33006c50
 Dot {
  name Dot107
  xpos -1736
  ypos 1006
 }
-set N2ac03280 [stack 0]
+set N33018fc0 [stack 0]
 add_layer {near00 near00.red near00.green near00.blue near00.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4181,13 +4154,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2ac03280
+push $N33018fc0
 Dot {
  name Dot108
  xpos -1486
  ypos 1006
 }
-set N2acc4950 [stack 0]
+set N3302b6c0 [stack 0]
 add_layer {near01 near01.red near01.green near01.blue near01.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4209,13 +4182,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2acc4950
+push $N3302b6c0
 Dot {
  name Dot109
  xpos -1236
  ypos 1006
 }
-set N2d296410 [stack 0]
+set N3303da80 [stack 0]
 add_layer {near02 near02.red near02.green near02.blue near02.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4237,13 +4210,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2d296410
+push $N3303da80
 Dot {
  name Dot110
  xpos -986
  ypos 1006
 }
-set N2d1fb040 [stack 0]
+set N3304fe40 [stack 0]
 add_layer {oraclevariance oraclevariance.oraclevariance}
 Shuffle2 {
  fromInput1 {
@@ -4265,13 +4238,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2d1fb040
+push $N3304fe40
 Dot {
  name Dot111
  xpos -736
  ypos 1006
 }
-set N2aa8d210 [stack 0]
+set N33061dd0 [stack 0]
 add_layer {primarysamples primarysamples.primarysamples}
 Shuffle2 {
  fromInput1 {
@@ -4293,13 +4266,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2aa8d210
+push $N33061dd0
 Dot {
  name Dot112
  xpos -486
  ypos 1006
 }
-set N2c301ab0 [stack 0]
+set N33074150 [stack 0]
 add_layer {primid primid.id}
 Shuffle2 {
  fromInput1 {
@@ -4321,13 +4294,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c301ab0
+push $N33074150
 Dot {
  name Dot113
  xpos -236
  ypos 1006
 }
-set N2c597690 [stack 0]
+set N330864c0 [stack 0]
 add_layer {raydirection raydirection.x raydirection.y raydirection.z}
 Shuffle2 {
  fromInput1 {
@@ -4349,13 +4322,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c597690
+push $N330864c0
 Dot {
  name Dot114
  xpos 14
  ypos 1006
 }
-set N2a9dce40 [stack 0]
+set N33098780 [stack 0]
 add_layer {rayorigin rayorigin.x rayorigin.y rayorigin.z}
 Shuffle2 {
  fromInput1 {
@@ -4377,13 +4350,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a9dce40
+push $N33098780
 Dot {
  name Dot115
  xpos 264
  ypos 1006
 }
-set N2c307780 [stack 0]
+set N330aae20 [stack 0]
 add_layer {rayorigin00 rayorigin00.red rayorigin00.green rayorigin00.blue rayorigin00.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4405,13 +4378,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c307780
+push $N330aae20
 Dot {
  name Dot116
  xpos 514
  ypos 1006
 }
-set N2d2aca80 [stack 0]
+set N330bd160 [stack 0]
 add_layer {rayorigin01 rayorigin01.red rayorigin01.green rayorigin01.blue rayorigin01.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4433,13 +4406,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2d2aca80
+push $N330bd160
 Dot {
  name Dot117
  xpos 764
  ypos 1006
 }
-set N2aac81f0 [stack 0]
+set N330cf650 [stack 0]
 add_layer {rayorigin02 rayorigin02.red rayorigin02.green rayorigin02.blue rayorigin02.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4461,13 +4434,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2aac81f0
+push $N330cf650
 Dot {
  name Dot118
  xpos 1014
  ypos 1006
 }
-set N2a8cce80 [stack 0]
+set N330e1b40 [stack 0]
 add_layer {time time.time}
 Shuffle2 {
  fromInput1 {
@@ -4489,13 +4462,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a8cce80
+push $N330e1b40
 Dot {
  name Dot119
  xpos 1264
  ypos 1006
 }
-set N2a834890 [stack 0]
+set N330f50c0 [stack 0]
 add_layer {time00 time00.red time00.green time00.blue time00.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4517,13 +4490,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a834890
+push $N330f50c0
 Dot {
  name Dot120
  xpos 1514
  ypos 1006
 }
-set N2c395dc0 [stack 0]
+set N33107430 [stack 0]
 add_layer {time01 time01.red time01.green time01.blue time01.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4545,13 +4518,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c395dc0
+push $N33107430
 Dot {
  name Dot121
  xpos 1764
  ypos 1006
 }
-set N2d239160 [stack 0]
+set N331197f0 [stack 0]
 add_layer {time02 time02.red time02.green time02.blue time02.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4573,13 +4546,13 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2d239160
+push $N331197f0
 Dot {
  name Dot122
  xpos 2014
  ypos 1006
 }
-set N2a32c880 [stack 0]
+set N3312bbb0 [stack 0]
 add_layer {uv_extra uv_extra.red uv_extra.green uv_extra.blue}
 Shuffle2 {
  fromInput1 {
@@ -4601,7 +4574,7 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a32c880
+push $N3312bbb0
 Dot {
  name Dot128
  xpos 2264
@@ -4628,7 +4601,7 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2c2b2fa0
+push $N32d381b0
 add_layer {CryptoMaterial01 CryptoMaterial01.red CryptoMaterial01.green CryptoMaterial01.blue CryptoMaterial01.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4650,7 +4623,7 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a874c00
+push $N32d31f40
 add_layer {CryptoMaterial00 CryptoMaterial00.red CryptoMaterial00.green CryptoMaterial00.blue CryptoMaterial00.alpha}
 Shuffle2 {
  fromInput1 {
@@ -4672,7 +4645,7 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2a57d690
+push $N3033de30
 add_layer {contributon contributon.red contributon.green contributon.blue}
 Shuffle2 {
  fromInput1 {
@@ -4694,7 +4667,7 @@ Shuffle2 {
  ypos 1024
  postage_stamp true
 }
-push $N2d25d8c0
+push $N32986100
 Dot {
  name Dot125
  xpos -12486
@@ -4721,13 +4694,13 @@ Shuffle2 {
  ypos 1274
  postage_stamp true
 }
-push $N2c8972a0
+push $N32c9e3c0
 Dot {
  name Dot61
  xpos -5236
  ypos 756
 }
-set N2ab46560 [stack 0]
+set N33185b40 [stack 0]
 add_layer {visiblelights visiblelights.red visiblelights.green visiblelights.blue}
 Shuffle2 {
  fromInput1 {
@@ -4749,7 +4722,7 @@ Shuffle2 {
  ypos 774
  postage_stamp true
 }
-push $N2ab46560
+push $N33185b40
 Dot {
  name Dot127
  xpos -4986
@@ -4785,7 +4758,7 @@ NoOp {
  xpos -5020
  ypos 871
  addUserKnob {20 anchor_tab l "Anchor Stamp"}
- addUserKnob {26 identifier +HIDDEN T anchor}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T anchor}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor.\nIMPORTANT: This is only for display purposes, and is different from the internal node name."}
  title beauty
  addUserKnob {26 prev_title l "" +STARTLINE +HIDDEN T beauty}
@@ -4816,7 +4789,7 @@ NoOp {
  ypos 2905
  hide_input true
  addUserKnob {20 wired_tab l "Wired Stamp"}
- addUserKnob {26 identifier +HIDDEN T wired}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T wired}
  addUserKnob {3 lockCallbacks l "" +STARTLINE +HIDDEN}
  addUserKnob {6 toReconnect -STARTLINE +HIDDEN}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor."}
@@ -4850,12 +4823,11 @@ NoOp {
  addUserKnob {1 anchor l Anchor}
  anchor Anchor_109e3b3f46
  addUserKnob {6 auto_reconnect_by_title l "<font color=#ED9977>&nbsp; auto-reconnect by title" t "On copy-paste, auto-reconnect by title instead of stored Anchor name; turns off automatically." +STARTLINE}
- addUserKnob {20 advanced_reconnection l "Advanced Reconnection" n -1}
  addUserKnob {26 line2 l "" +STARTLINE}
  addUserKnob {22 buttonHelp l Help -STARTLINE T stamps.showHelp()}
  addUserKnob {26 version l " " t "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025." -STARTLINE T "<a href=\"http://www.nukepedia.com/gizmos/other/stamps\" style=\"color:#666;text-decoration: none;\"><span style=\"color:#666\"><big>Stamps v1.2</big></span></a>"}
 }
-push $N2ac5f520
+push $N32c98160
 add_layer {shadow shadow.red shadow.green shadow.blue}
 Shuffle2 {
  fromInput1 {
@@ -4888,7 +4860,7 @@ NoOp {
  xpos -5770
  ypos 859
  addUserKnob {20 anchor_tab l "Anchor Stamp"}
- addUserKnob {26 identifier +HIDDEN T anchor}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T anchor}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor.\nIMPORTANT: This is only for display purposes, and is different from the internal node name."}
  title shadow
  addUserKnob {26 prev_title l "" +STARTLINE +HIDDEN T shadow}
@@ -4919,7 +4891,7 @@ NoOp {
  ypos 3032
  hide_input true
  addUserKnob {20 wired_tab l "Wired Stamp"}
- addUserKnob {26 identifier +HIDDEN T wired}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T wired}
  addUserKnob {3 lockCallbacks l "" +STARTLINE +HIDDEN}
  addUserKnob {6 toReconnect -STARTLINE +HIDDEN}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor."}
@@ -4953,7 +4925,6 @@ NoOp {
  addUserKnob {1 anchor l Anchor}
  anchor Anchor_1e911e38f2
  addUserKnob {6 auto_reconnect_by_title l "<font color=#ED9977>&nbsp; auto-reconnect by title" t "On copy-paste, auto-reconnect by title instead of stored Anchor name; turns off automatically." +STARTLINE}
- addUserKnob {20 advanced_reconnection l "Advanced Reconnection" n -1}
  addUserKnob {26 line2 l "" +STARTLINE}
  addUserKnob {22 buttonHelp l Help -STARTLINE T stamps.showHelp()}
  addUserKnob {26 version l " " t "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025." -STARTLINE T "<a href=\"http://www.nukepedia.com/gizmos/other/stamps\" style=\"color:#666;text-decoration: none;\"><span style=\"color:#666\"><big>Stamps v1.2</big></span></a>"}
@@ -4964,7 +4935,7 @@ Invert {
  xpos -4351
  ypos 3105
 }
-push $N2a17d920
+push $N32b5ec30
 add_layer {beautyunshadowed beautyunshadowed.red beautyunshadowed.green beautyunshadowed.blue}
 Shuffle2 {
  fromInput1 {
@@ -4997,7 +4968,7 @@ NoOp {
  xpos -11020
  ypos 859
  addUserKnob {20 anchor_tab l "Anchor Stamp"}
- addUserKnob {26 identifier +HIDDEN T anchor}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T anchor}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor.\nIMPORTANT: This is only for display purposes, and is different from the internal node name."}
  title beautyunshadowed
  addUserKnob {26 prev_title l "" +STARTLINE +HIDDEN T beautyunshadowed}
@@ -5028,7 +4999,7 @@ NoOp {
  ypos 2972
  hide_input true
  addUserKnob {20 wired_tab l "Wired Stamp"}
- addUserKnob {26 identifier +HIDDEN T wired}
+ addUserKnob {26 identifier -STARTLINE +HIDDEN T wired}
  addUserKnob {3 lockCallbacks l "" +STARTLINE +HIDDEN}
  addUserKnob {6 toReconnect -STARTLINE +HIDDEN}
  addUserKnob {1 title l Title: t "Displayed name on the Node Graph for this Stamp and its Anchor."}
@@ -5062,7 +5033,6 @@ NoOp {
  addUserKnob {1 anchor l Anchor}
  anchor Anchor_2a15e17688
  addUserKnob {6 auto_reconnect_by_title l "<font color=#ED9977>&nbsp; auto-reconnect by title" t "On copy-paste, auto-reconnect by title instead of stored Anchor name; turns off automatically." +STARTLINE}
- addUserKnob {20 advanced_reconnection l "Advanced Reconnection" n -1}
  addUserKnob {26 line2 l "" +STARTLINE}
  addUserKnob {22 buttonHelp l Help -STARTLINE T stamps.showHelp()}
  addUserKnob {26 version l " " t "Stamps by Adrian Pueyo and Alexey Kuchinski.\nUpdated March 3 2025." -STARTLINE T "<a href=\"http://www.nukepedia.com/gizmos/other/stamps\" style=\"color:#666;text-decoration: none;\"><span style=\"color:#666\"><big>Stamps v1.2</big></span></a>"}
@@ -5116,4 +5086,53 @@ StickyNote {
  xpos -4571
  ypos 3159
  bookmark true
+}
+Read {
+ inputs 0
+ file_type exr
+ file /render/h21_karma_all_default_utils.0001.exr
+ format "1920 1440 0 0 1920 1440 1 "
+ origset true
+ name Read2
+ xpos -12475
+ ypos -238
+}
+Read {
+ inputs 0
+ file_type exr
+ file /render/h21_karma_all_extra_utils.0001.exr
+ format "1920 1440 0 0 1920 1440 1 "
+ origset true
+ name Read3
+ xpos -12365
+ ypos -238
+}
+DeepRead {
+ inputs 0
+ file /render/h21_karma_beauty_deep.dcm.0001.exr
+ format "1920 1440 0 0 1920 1440 1 "
+ origset true
+ name DeepRead1
+ xpos -12205
+ ypos -219
+}
+StickyNote {
+ inputs 0
+ name StickyNote8
+ tile_color 0x272727ff
+ label "<h3>Missing Materials</h3><i>caustics</i>\\n<i>refract</i>\\n"
+ note_font_size 40
+ note_font_color 0xa8a8a8ff
+ xpos -6785
+ ypos 2911
+}
+StickyNote {
+ inputs 0
+ name StickyNote10
+ tile_color 0xff7f00ff
+ label "<h3>Warning!</h3><i>Due to multiple AOVs of the same type using different names \nthis pipe is broken (negative values). Do not add to B pipe"
+ note_font_size 40
+ note_font_color 0xa8a8a8ff
+ xpos -7594
+ ypos 6871
 }

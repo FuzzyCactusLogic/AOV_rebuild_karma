@@ -14,7 +14,7 @@ Windows = 'C:\\Users\\<your username>\\.nuke'
 
 Mac = '/Users/<your username>/.nuke'
 
-Inside .nuke directory, edit menu.py <nukeCommonPath> to match your .nuke directory. That's it! ##
+Inside .nuke directory, edit menu.py <nukeCommonPath> to match your .nuke directory. That's it!
 
 
 
@@ -22,7 +22,7 @@ Inside .nuke directory, edit menu.py <nukeCommonPath> to match your .nuke direct
 
 1. AOV_rebuild_karma.py
 
-is made following Daniel Millers course 'Dynamic Node Graphs with Python in Nuke' which rebuilds materials and lightgroups using a production approved method so users can grade both properties of their render in a safe (mathematically correct) manner which can be easy to break otherwise by adding and subtracting AOVs down the pipe. It also comes with an 'unassigned pipe', a great feature for QCing your lighters work by displaying unassigned lights.
+is made following Daniel Millers course 'Dynamic Node Graphs with Python in Nuke' which rebuilds materials and lightgroups using a production approved method so users can grade both properties of their render in a safe manner which can be easy to break otherwise by adding and subtracting AOVs down the pipe. It also comes with an 'unassigned pipe', a great feature for QCing your lighters work by displaying unassigned lights.
 
 2. AOV_rebuild_karma_albedo_raw.nk 
 
@@ -42,7 +42,14 @@ So far AOV_rebuild_karma_examples_v001.nk includes a key of all default and extr
 
 
 
-For any questions, issues or feedback hit me up on GitHub!
+## Known issues to be addressed ##
+
+When putting together the REBUILD WITH ALBEDO EXAMPLE in AOV_rebuild_karma_examples_v001.nk I realised that the unassigned pipe can be broken by outputting AOVs of the same type but using different names (for example 'albedo' and 'albedo_diffuse') resulting in negative values and a horrible result if the unassigned pipe is plussed to the b_pipe.
+
+I think a suitable fix is additional code to check specific AOVs by name and a guard to analyse the result of the unassigned pipe for negative vaules. There are possibly other workflow issues and likely bugs I'm unaware of as yet so I'm releasing this version with the caveat users will have to check this manually and I'll add a fix for this along with any other issues / bugs users run into with this release. 
+
+
+For any questions, bug reports or feedback hit me up on GitHub!
 
 
 
