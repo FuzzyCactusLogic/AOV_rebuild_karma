@@ -30,7 +30,7 @@ is a template to demonstrate AOV rebuilding with albedo in nuke. It won't work f
 
 AOV_rebuild_karma.py 
 
-to breakout all your AOVs, then delete out materials that you intend to rebuild with albedo from this template and stitch both templates together.
+to breakout all your AOVs, then delete out materials that you intend to rebuild with albedo from this template and stitch both templates together manually.
 
 3. AOV_rebuild_karma_examples_v001.nk 
 
@@ -46,14 +46,14 @@ So far AOV_rebuild_karma_examples_v001.nk includes a key of all default and extr
 
 When putting together the REBUILD WITH ALBEDO EXAMPLE in AOV_rebuild_karma_examples_v001.nk I realised that the unassigned pipe can be broken by outputting AOVs of the same type but using different names (for example 'albedo' and 'albedo_diffuse') resulting in negative values and a horrible result if the unassigned pipe is plussed to the b_pipe.
 
-I think a suitable fix is additional code to check specific AOVs by name and a guard to analyse the result of the unassigned pipe for negative vaules. There are possibly other workflow issues and likely bugs I'm unaware of as yet so I'm releasing this version with the caveat users will have to check this manually and I'll add a fix for this along with any other issues / bugs users run into with this release. 
+I think a suitable fix is additional code to check specific AOVs by name and a guard to analyse the result of the unassigned pipe for negative vaules. There are possibly other workflow issues I'm unaware of as yet so I'm releasing this version with the caveat users will have to check this manually and I'll add a fix for this along with any other issues / bugs users may run into with this release in a later version. 
 
 
 For any questions, bug reports or feedback hit me up on GitHub!
 
 
 
-Special thanks to Daniel Miller and Tony Lyons for their work upon which this project is based.
+Special thanks to Daniel Miller, Tony Lyons and Peter Arcara for their work upon which this project is based.
 
 
 
